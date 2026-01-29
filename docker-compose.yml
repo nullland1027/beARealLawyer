@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  lawyer-app:
+    build: .
+    container_name: lawyer-case-management
+    ports:
+      - "8501:8501"
+    volumes:
+      # 持久化数据目录
+      - ./data:/app/data
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
